@@ -8,18 +8,18 @@
 
 ## 阶段 1：收集需求
 
-必须执行：在创建文件之前必须完成此阶段。
+未经确认不能跳过：在创建文件之前必须完成此阶段。
 
-在一个用户提示词中收集下面所有问题：
+在一次user prompt中收集下面所有问题：
 
-| 标题      | 问题                          | 备注                                                                                             |
+| 标题      | 问题                          |                                                                                              提示|
 | --------- | ----------------------------- | ------------------------------------------------------------------------------------------------ |
-| 领域/范围 | Wiki 的主题是什么？           | 选项：研究主题；小说／媒体；个人（目标、健康、学习等）；企业／团队；其他。                       |
-| Wiki 名称 | wiki根目录使用什么名称？      | 用户随意输入。建议使用如 `{domain}-wiki`、`lm-wiki`这样的短标签。                                |
+| 领域/范围 | Wiki 的主题是什么？           | 单选：研究主题；小说／媒体；个人（目标、健康、学习等）；企业／团队；其他。                       |
+| Wiki 名称 | wiki根目录使用什么名称？      | 文本：建议使用```{domain}-wiki``` 格式，如```lm-wiki```这样的短标签。                                |
 | 运行时    | 哪些运行时程序会读取此 wiki？ | 多选：Claude Code、OpenAI Codex、Copilot (VS Code)、及其他/通用类型。                            |
-| 编辑      | 主要使用哪个编辑器？          | 选项：Obsidian（推荐）、VS Code、其他/plain 文件。                                               |
+| 编辑器      | 主要使用哪个编辑器？          | 单选：Obsidian（推荐）、VS Code、其他/plain 文件。                                               |
 | 来源类型  | 你会添加哪些类型的来源？      | 多选：网页文章、PDF 文档/论文、书籍、会议记录/发言稿、个人笔记/日记、图片/图表、数据文件、其他。 |
-| 输出位置  | 你想将wiki创建在哪里？        | 选项：当前目录或绝对路径。                                                                       |
+| 输出位置  | 你想将wiki创建在哪里？        | 单选：当前目录或自定义路径。                                                                       |
 
 ## 阶段 2：创建目录结构
 
@@ -72,7 +72,7 @@
 | 领域 | 添加页面类型 |
 | ---------------------- | ----------------------------------------- |
 | 小说/媒体 | Character, timeline, plot thread, theme, location. |
-| 研究主题 | Paper summary, claim, method, dataset. |
+| 专题研究 | Papers(论文), Claims(主张), Methods(方法), Datasets(数据集). |
 | 个人 | Journal entry, goal, habit, lesson. |
 | 企业/团队 | Decision log, meeting summary, project, stakeholder. |
 | 其他 | 除非用户给出了更明确的分类标准，否则请使用通用的页面类型 |
@@ -105,16 +105,16 @@
 | `wiki/index.md`          | `references/templates/index.md`         | 添加通用部分以及特定领域的部分。                     |
 | `wiki/concept-table.md`  | `references/templates/concept-table.md` | 将 {DATE} 填充当前日期，"概念"行留空。               |
 | `wiki/log.md`            | `references/templates/log.md`           | 请添加第一条关于当前日期的维基创建条目。             |
-| `wiki/overview(概览).md` | `references/templates/overview.md`      | 添加一段简短的简介，说明该维基页面的用途和所属领域。 |
+| `wiki/overview.md` | `references/templates/overview.md`      | 添加一段简短的简介，说明该维基页面的用途和所属领域。 |
 
 通用索引部分包括：Core Maps, Sources, Entities, Concepts, Comparisons, Synthesis.
 特定领域索引部分：
 | 领域 | 章节 |
 | ------------------------ | --------------------------------------- |
-| 研究主题 | Papers, Claims, Methods, Datasets. |
-| 小说／媒体 | Characters, Timelines, Themes, Locations. |
-| 个人（目标、健康、学习等） | Journal, Goals, Habits, Lessons. |
-| 企业／团队 | Decision Logs, Meetings, Projects, Stakeholders. |
+| 专题研究 | Papers(论文), Claims(主张), Methods(方法), Datasets(数据集). |
+| 小说／媒体 | Characters(角色), Timelines(时间线), Themes(主题), Locations(地点). |
+| 个人（目标、健康、学习等） | Journal(日记), Goals(目标), Habits(习惯), Lessons(教训). |
+| 企业／团队 | Decision Logs(决策日志), Meetings(会议记录), Projects(项目), Stakeholders(干系人信息). |
 
 对于空白的章节，可以使用占位符注释来填充，而不是编造内容。
 

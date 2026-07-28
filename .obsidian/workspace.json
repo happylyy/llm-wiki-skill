@@ -1,0 +1,198 @@
+{
+  "main": {
+    "id": "d7fb1ae3d7d176de",
+    "type": "split",
+    "children": [
+      {
+        "id": "650728fb7496a61e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "21df7e80391fc405",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "llm-wiki-demo/wiki/sources/product-development-management(产品研发管理第二版).md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "product-development-management(产品研发管理第二版)"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "2fcee352f893b081",
+    "type": "split",
+    "children": [
+      {
+        "id": "4c3c529396c8ae3c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2a26cce66902633a",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "da8fb4bdc50f2611",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "cb583aabcd58d882",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 594.5
+  },
+  "right": {
+    "id": "532bb845a914595f",
+    "type": "split",
+    "children": [
+      {
+        "id": "049f68f387d3274f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "20d2031e4ac681a4",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "llm-wiki-demo/wiki/sources/product-development-management(产品研发管理第二版).md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "product-development-management(产品研发管理第二版) 的反向链接列表"
+            }
+          },
+          {
+            "id": "74f4acf219ca8359",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "llm-wiki-demo/wiki/sources/product-development-management(产品研发管理第二版).md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "product-development-management(产品研发管理第二版) 的出链列表"
+            }
+          },
+          {
+            "id": "3e910ede01bb43fd",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "85a1d1855bc3494b",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "84a08ad0107f9519",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "llm-wiki-demo/wiki/sources/product-development-management(产品研发管理第二版).md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "product-development-management(产品研发管理第二版) 的大纲"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:新建数据库": false
+    }
+  },
+  "active": "21df7e80391fc405",
+  "lastOpenFiles": [
+    "llm-wiki-demo/wiki/sources/product-centered-organization(以产品为中心的组织体系).md",
+    "llm-wiki-demo/wiki/sources/new-product-marketing-management(新产品研发营销管理).md",
+    "llm-wiki-demo/wiki/sources/market-management-system(产品研发市场体系).md",
+    "llm-wiki-demo/wiki/sources/integrated-product-development-management(集成产品研发管理).md",
+    "llm-wiki-demo/wiki/sources/technology-and-platform-management(技术与平台管理).md",
+    "llm-wiki-demo/wiki/concepts/application-architecture(应用架构).md",
+    "llm-wiki-demo/wiki/concepts/appeals-model($APPEALS模型).md",
+    "llm-wiki-demo/wiki/entities/rongzhi-consulting(融智咨询).md",
+    "llm-wiki-demo/AGENTS.md"
+  ]
+}

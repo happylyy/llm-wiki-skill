@@ -17,7 +17,7 @@ wiki/           # 你的页面（可读写）
 wiki/index.md   # 内容目录——每次 ingest 时更新
 wiki/concept-table.md # 持续维护的概念地图——每次概念变更时更新
 wiki/log.md     # 仅追加的操作日志
-wiki/overview(概览).md # 综合概览——随着理解加深而修订
+wiki/overview.md # 综合概览——随着理解加深而修订
 ```
 
 ## 页面类型
@@ -87,7 +87,7 @@ tags: [tag1, tag2]
 - Contradictions: {list or "none"}
 ```
 
-12. 检查 `wiki/overview(概览).md`——如果新的信息改变了整体情况，那么就需要对其进行修改了。
+12. 检查 `wiki/overview/.md`——如果新的信息改变了整体情况，那么就需要对其进行修改了。
 
 ### Query
 
