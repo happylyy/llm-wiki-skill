@@ -4,7 +4,6 @@ description: >
   引导创建和操作 LLM Wiki：一个持久化的 Markdown 知识库，其中包含不可变的原始资料、
   由 LLM 维护的 wiki、作为操作契约的 SCHEMA.md、精简的运行时指针文件、作为偏好配置的EXTEND.md，以及可选的本地 BM25 搜索。当用户要求创建或初始化 LLM wiki、摄取(ingest)资料、
   查询(query)或检查(lint) wiki、配置 EXTEND.md 偏好，或为 LLM Wiki 设置 BM25/全文搜索时使用。
-version: 0.1.0
 ---
 
 # LLM Wiki 引导
@@ -28,7 +27,7 @@ version: 0.1.0
 | 用户意图                   | 执行操作                                                                              | 参考资料                                                               |
 | -------------------------- | ------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
 | 初始化或引导建立新的 wiki  | 运行偏好预检，收集所需的设置信息，然后生成框架结构和初始化文件。                      | `references/workflows/bootstrap.md`                                    |
-| 摄取一个或多个资料来源     | 运行偏好预检，检查可选的 BM25 门控，然后将来源知识编译到 `wiki/` 中。                 | `references/workflows/ingest.md`                                       |
+| 摄取一个或多个资料来源     | 运行偏好预检，检查可选的 BM25 门控，然后将来源知识编译到 `wiki/` 中；书籍类来源额外执行概念识别工作流。 | `references/workflows/ingest.md`；书籍类来源另读 `references/workflows/ingest_concepts.md` |
 | 根据 wiki 回答领域问题     | 运行偏好预检，从 `wiki/index.md` 导航，仅将 BM25 用作候选查找器，然后引用 wiki 页面。 | `references/workflows/query.md`                                        |
 | 检查 wiki 健康状况或一致性 | 运行偏好预检，扫描结构和内容，报告发现，然后仅修复获准的项目。                        | `references/workflows/lint.md`                                         |
 | 配置或使用 BM25 搜索       | 加载偏好，在初始化前询问，创建本地搜索文件，执行冒烟测试，并记录结果。                | `references/workflows/bm25.md`                                         |
@@ -43,6 +42,7 @@ version: 0.1.0
 
 - Bootstrap功能：读取 `references/workflows/bootstrap.md`的内容，当需要创建特定文件时，再按需加载模板。
 - 对于摄取(ingest)、查询(query)和检查(lint)：先读取匹配的工作流文件；仅当偏好或用户请求需要搜索行为时，才读取 `references/workflows/bm25.md`。
+- 摄取完整书籍、章节或书籍节选时：在 `references/workflows/ingest.md` 判定来源类型后，额外读取并完整执行 `references/workflows/ingest_concepts.md`；非书籍来源不得加载该子流程。
 - Schema生成：读取 `references/templates/schema.md`的内容，并按需注入 `references/templates/domain-page-types.md`。
 - 指针文件：读取 `references/templates/agent-pointer.md` 的内容，并保持精简。
 - 初始化BM25：只有在用户确认后，才读取 `references/templates/wiki_fts.py` 和 `references/templates/bm25-readme.md` 的内容。
