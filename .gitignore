@@ -56,6 +56,11 @@ Thumbs.db
 *.swo
 *~
 
+# Local agent, editor, and research workspaces
+/.agents/
+/.obsidian/
+/research-wiki/
+
 # Rebuildable generated wiki search artifacts
 indexes/fts.sqlite
 exports/*.jsonl
