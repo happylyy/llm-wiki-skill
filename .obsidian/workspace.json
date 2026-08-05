@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "llm-wiki-demo/wiki/sources/product-development-management(产品研发管理第二版).md",
+                "file": "research-wiki/wiki/sources/principles-for-dealing-with-the-changing-world-order(原则：应对变化中的世界秩序).md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "product-development-management(产品研发管理第二版)"
+              "title": "principles-for-dealing-with-the-changing-world-order(原则：应对变化中的世界秩序)"
             }
           }
         ]
@@ -41,7 +41,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "文件列表"
@@ -78,7 +80,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 594.5
+    "width": 419.1000061035156
   },
   "right": {
     "id": "532bb845a914595f",
@@ -185,14 +187,51 @@
   },
   "active": "21df7e80391fc405",
   "lastOpenFiles": [
-    "llm-wiki-demo/wiki/sources/product-centered-organization(以产品为中心的组织体系).md",
-    "llm-wiki-demo/wiki/sources/new-product-marketing-management(新产品研发营销管理).md",
-    "llm-wiki-demo/wiki/sources/market-management-system(产品研发市场体系).md",
-    "llm-wiki-demo/wiki/sources/integrated-product-development-management(集成产品研发管理).md",
-    "llm-wiki-demo/wiki/sources/technology-and-platform-management(技术与平台管理).md",
-    "llm-wiki-demo/wiki/concepts/application-architecture(应用架构).md",
-    "llm-wiki-demo/wiki/concepts/appeals-model($APPEALS模型).md",
-    "llm-wiki-demo/wiki/entities/rongzhi-consulting(融智咨询).md",
-    "llm-wiki-demo/AGENTS.md"
+    "research-wiki/wiki/sources/how-the-world-works(第一部分：世界是如何运转的).md",
+    "research-wiki/wiki/sources/principles-for-dealing-with-the-changing-world-order(原则：应对变化中的世界秩序).md",
+    "llm-wiki-demo/wiki/sources/principles-part-three-work-principles(原则·第三部分：工作原则).md",
+    "research-wiki/wiki/entities/china(中国).md",
+    "research-wiki/wiki/entities/united-states(美国).md",
+    "research-wiki/wiki/entities/british-empire(大英帝国).md",
+    "research-wiki/wiki/entities/dutch-empire(荷兰帝国).md",
+    "research-wiki/wiki/entities/ray-dalio(瑞·达利欧).md",
+    "research-wiki/wiki/concepts/uncertainty-response-method(不确定性应对法).md",
+    "research-wiki/wiki/concepts/historical-analogy-method(历史类比法).md",
+    "research-wiki/wiki/concepts/interstate-conflict-types(国家冲突类型).md",
+    "research-wiki/wiki/concepts/external-order-cycle(外部秩序周期).md",
+    "research-wiki/wiki/concepts/internal-order-cycle(内部秩序周期).md",
+    "research-wiki/wiki/concepts/capital-market-cycle(资本市场大周期).md",
+    "research-wiki/wiki/concepts/harmonious-deleveraging(和谐去杠杆化).md",
+    "research-wiki/wiki/concepts/reserve-currency-cycle(储备货币周期).md",
+    "research-wiki/wiki/concepts/monetary-system-types(货币体系类型).md",
+    "research-wiki/wiki/concepts/long-term-debt-cycle(长期债务周期).md",
+    "research-wiki/wiki/concepts/national-strength-indicators(国家实力指标).md",
+    "research-wiki/wiki/concepts/five-major-forces(五大力量).md",
+    "research-wiki/wiki/concepts/evolutionary-uptrend(进化上行趋势).md",
+    "research-wiki/wiki/concepts/big-cycle(大周期).md",
+    "research-wiki/wiki/sources/the-future(第三部分：未来).md",
+    "research-wiki/wiki/sources/world-history-over-500-years(第二部分：500年世界发展史).md",
+    "research-wiki/wiki/entities",
+    "research-wiki/wiki/concepts",
+    "research-wiki/wiki/sources",
+    "llm-wiki-demo/wiki/concepts/meaningful-relationships(有意义的人际关系).md",
+    "research-wiki/raw/原则：应对变化中的世界秩序.md",
+    "research-wiki/raw/原则：应对变化中的世界秩序_images/images/00268.jpeg",
+    "research-wiki/raw/原则：应对变化中的世界秩序_images/images/00267.jpeg",
+    "research-wiki/raw/原则：应对变化中的世界秩序_images/images/00266.jpeg",
+    "research-wiki/raw/原则：应对变化中的世界秩序_images/images/00265.jpeg",
+    "research-wiki/raw/原则：应对变化中的世界秩序_images/images/00264.jpeg",
+    "research-wiki/raw/原则：应对变化中的世界秩序_images/images/00263.jpeg",
+    "research-wiki/raw/原则：应对变化中的世界秩序_images/images/00262.jpeg",
+    "research-wiki/raw/原则：应对变化中的世界秩序_images/images/00261.jpeg",
+    "research-wiki/raw/原则：应对变化中的世界秩序_images/images/00260.jpeg",
+    "research-wiki/raw/原则：应对变化中的世界秩序_images/images/00259.jpeg",
+    "research-wiki/raw/原则：应对变化中的世界秩序_images/images",
+    "research-wiki/raw/原则：应对变化中的世界秩序_images",
+    "tests/__pycache__/test_wiki_contract.cpython-312.pyc",
+    "tests/__pycache__/test_skill_contract.cpython-312.pyc",
+    "tests/__pycache__/support.cpython-312.pyc",
+    "tests/__pycache__/test_bm25_e2e.cpython-312.pyc",
+    "tests/__pycache__/__init__.cpython-312.pyc"
   ]
 }

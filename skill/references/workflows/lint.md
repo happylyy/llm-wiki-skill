@@ -23,7 +23,7 @@ Read `wiki/index.md` and `wiki/concept-table.md`, then read every page listed. B
 - All `sources` frontmatter entries
 - All contradiction blocks
 - All tags
-- All concept table rows, statuses, related pages, and maintenance notes
+- All concept table rows, concept types, statuses, and related pages
 
 If BM25 is enabled, also run:
 
@@ -55,7 +55,7 @@ Execute each check category. Collect findings as a numbered list.
 | Unresolved contradictions  | Contradiction block with `Resolution: pending` older than 2 ingests                           | 中       |
 | Stale claims               | Page claims X, but a newer source (by date) contradicts it without the page being updated     | 高       |
 | Single-source concepts     | Concept page backed by only 1 source                                                          | 低       |
-| Stale concept table status | Concept row status or maintenance note is no longer supported by the concept page and sources | 中       |
+| Stale concept table metadata | Concept row type or status conflicts with the concept page and sources                       | 中       |
 | Outdated overview          | `wiki/overview.md` not updated since 3+ ingests ago                                           | 中       |
 
 #### 2.3 Cross-reference Checks

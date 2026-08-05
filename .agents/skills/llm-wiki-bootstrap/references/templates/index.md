@@ -8,7 +8,7 @@
 | File(文件)                               | purpose(用途)                                          |
 | ---------------------------------------- | ------------------------------------------------------ |
 | [overview.md](<overview.md>) | 整个 wiki 的高层综合                                   |
-| [concept-table.md](concept-table.md)     | 持续维护的概念图，包含定义、关系、来源、状态和维护备注 |
+| [concept-table.md](concept-table.md)     | 持续维护的概念图，包含类型、定义、关系、来源和状态   |
 
 ## Sources(来源)
 

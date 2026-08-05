@@ -27,7 +27,7 @@ wiki/overview.md # 综合概览——随着理解加深而修订
 | Sources(来源)         | `wiki/sources/{english-slug}({中文标题}).md`     | 每个摄取的来源对应一个文档，记录关键主张、数据和引用内容。   |
 | Entities(实体)        | `wiki/entities/{english-slug}({中文标题}).md`    | 人物、组织、地点、产品——任何具有明确身份的事物。             |
 | Concepts(概念)        | `wiki/concepts/{english-slug}({中文标题}).md`    | 观点、理论、框架、方法。                                     |
-| Concept-table(概念表) | `wiki/concept-table.md`                          | 持续维护的概念矩阵，包括概念、关系、来源、置信度和维护备注。 |
+| Concept-table(概念表) | `wiki/concept-table.md`                          | 持续维护的概念矩阵，包括概念、类型、关系、来源和状态。       |
 | Comparisons(比较)     | `wiki/comparisons/{english-slug}({中文标题}).md` | 对两个或更多实体或概念进行并列分析。                         |
 | Synthesis(综合分析)   | `wiki/synthesis/{english-slug}({中文标题}).md`   | 围绕某个主题进行跨来源分析。                                 |
 | Overview(概览)        | `wiki/{english-slug}({中文标题}).md`             | 整个知识库的顶层叙述。                                       |
@@ -55,6 +55,13 @@ tags: [tag1, tag2]
 - 使用行内链接引用来源：`[中文标题](../sources/{english-slug}({中文标题}).md)`
 - 明确标记矛盾：`> ⚠️ CONTRADICTION: Source A claims X, Source B claims Y.`
 - 在适用时标记置信度：`(high confidence)`、`(tentative)`、`(single-source)`
+
+概念页正文约定：
+
+- 保留 `## 重点概念卡片`、`## 工作定义`、`## 作者论证`、`## 运行机制`、`## 相关概念` 和 `## 来源`。
+- 概念类型为 `原理`、`机制`、`方法` 或 `模型／框架` 时，根据来源证据填写“作者论证”和“运行机制”并提供章节、页码、段落或行号定位。前者说明作者建立概念所使用的前提、证据、推理过程和结论；后者说明输入或触发条件、组成或步骤、因果过程及产出。
+- 上述四类概念缺少证据时填写“未知”“不确定”或“无”，不得根据常识、模型记忆或外部资料补写。其他类型保留两个章节并填写“不适用”。
+- 重点概念卡片中的“核心机制”保持为一句话摘要，“运行机制”章节提供展开说明。
 
 ## 操作
 
@@ -176,7 +183,7 @@ chunk_id, page_path, title, type, heading_path, ordinal, sources, tags, updated,
 | File(文件)                               | Purpose(用途)                                                                                  |
 | ---------------------------------------- | ---------------------------------------------------------------------------------------------- |
 | [overview(概览).md](<overview(概览).md>) | High-level synthesis of the whole wiki                                                         |
-| [concept-table.md](concept-table.md)     | Maintained concept map with definitions, relationships, sources, status, and maintenance notes |
+| [concept-table.md](concept-table.md)     | Maintained concept map with types, definitions, relationships, sources, and status |
 
 ## Sources(源文件)
 
@@ -208,7 +215,7 @@ chunk_id, page_path, title, type, heading_path, ordinal, sources, tags, updated,
 
 ## Concept-Table Protocol(概念表协议)
 
-`wiki/concept-table.md` 是 LLM 对持久概念的压缩地图。它与 `wiki/index.md` 互为补充：索引对页面进行编目，而概念表解释概念的含义、相互关系和维护需求。
+`wiki/concept-table.md` 是 LLM 对持久概念的压缩地图。它与 `wiki/index.md` 互为补充：索引对页面进行编目，而概念表解释概念的含义、类型和相互关系。
 
 保持以下结构：
 
@@ -222,8 +229,8 @@ chunk_id, page_path, title, type, heading_path, ordinal, sources, tags, updated,
 
 ## Concepts
 
-| Concept(概念) | Working definition(工作定义) | Role in this wiki(作用) | Sources(来源) | Related pages(相关页面) | Status(状态) | Maintenance note(维护备注) |
-| ------------- | ---------------------------- | ----------------------- | ------------- | ----------------------- | ------------ | -------------------------- |
+| Concept(概念) | Concept type(概念类型) | Working definition(工作定义) | Role in this wiki(作用) | Sources(来源) | Related pages(相关页面) | Status(状态) |
+| ------------- | ---------------------- | ---------------------------- | ----------------------- | ------------- | ----------------------- | ------------ |
 ```
 
 规则：
@@ -232,6 +239,16 @@ chunk_id, page_path, title, type, heading_path, ordinal, sources, tags, updated,
 - 每当概念页面被创建、重命名、删除、合并、拆分或实质性修订时，更新对应行
 - 按概念名称的字母顺序排列各行
 - 定义保持简洁并体现证据情况；详细内容链接到完整概念页面
+- `Concept type` 仅使用以下候选类型：
+  - `原理`：解释为什么某件事成立
+  - `机制`：解释某件事如何发生
+  - `方法`：说明如何完成某项任务
+  - `模型／框架`：组织多个概念或步骤
+  - `分类`：划分不同类型或层次
+  - `区分`：澄清容易混淆的对象
+  - `状态／属性`：描述对象的重要特征
+  - `评价标准`：判断某事是否成立或完成的依据
+  - `产出`：某种方法预期生成的稳定结果
 - `Status` 使用 `high confidence`、`single-source`、`tentative`、`needs sources` 或 `contradicted` 等值
 - 列标题保持中英文，因为它们是协议标识符；行内容使用相关概念页面的语言
 

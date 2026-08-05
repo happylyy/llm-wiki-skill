@@ -15,7 +15,7 @@ description: >
 ## 操作模型
 
 - 将 `SCHEMA.md` 作为每个所生成 wiki 中的唯一事实来源。
-- 将 `wiki/concept-table.md` 作为持续维护的概念图：它通过汇总持久性的概念(concepts)、关系(relationships)、来源(sources)、状态(status)以及维护笔记(maintenance notes)来补充 wiki/index.md 的内容。
+- 将 `wiki/concept-table.md` 作为持续维护的概念图：它通过汇总持久性的概念(concepts)、概念类型(concept types)、关系(relationships)、来源(sources)以及状态(status)来补充 wiki/index.md 的内容。
 - 将 `CLAUDE.md`、`AGENTS.md` 和 `.github/copilot-instructions.md` 保持为指向 `SCHEMA.md` 的精简指针；切勿在其中复制操作规则。
 - 将 `raw/` 视为只读证据。仅在 `wiki/` 下创建和更新派生知识。
 - 在执行初始化（bootstrap）、摄取（ingest）、查询（query）、检查（lint）或 BM25 工作之前应用 `EXTEND.md` 中的偏好。
@@ -43,6 +43,7 @@ description: >
 - Bootstrap功能：读取 `references/workflows/bootstrap.md`的内容，当需要创建特定文件时，再按需加载模板。
 - 对于摄取(ingest)、查询(query)和检查(lint)：先读取匹配的工作流文件；仅当偏好或用户请求需要搜索行为时，才读取 `references/workflows/bm25.md`。
 - 摄取完整书籍、章节或书籍节选时：在 `references/workflows/ingest.md` 判定来源类型后，额外读取并完整执行 `references/workflows/ingest_concepts.md`；非书籍来源不得加载该子流程。
+- 生成或更新概念页时：读取 `references/templates/concepts.md`，以完整模板为基础填充概念；允许追加自定义章节，但不得删除模板字段。
 - Schema生成：读取 `references/templates/schema.md`的内容，并按需注入 `references/templates/domain-page-types.md`。
 - 指针文件：读取 `references/templates/agent-pointer.md` 的内容，并保持精简。
 - 初始化BM25：只有在用户确认后，才读取 `references/templates/wiki_fts.py` 和 `references/templates/bm25-readme.md` 的内容。
