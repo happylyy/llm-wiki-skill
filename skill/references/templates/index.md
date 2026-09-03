@@ -10,6 +10,13 @@
 | [overview.md](<overview.md>) | 整个 wiki 的高层综合                                   |
 | [concept-table.md](concept-table.md)     | 持续维护的概念图，包含类型、定义、关系、来源和状态   |
 
+## Books(书籍)
+
+| Book(书籍) | Concept table(概念表) | Sources(来源分卷) | Tags(标签) |
+| ---------- | ---------------------- | ------------------- | ---------- |
+
+<!-- 仅当摄取过书籍类来源时才有条目；每本书对应 wiki/books/{book-slug}(书名)/concept-table.md -->
+
 ## Sources(来源)
 
 | File(文件) | Title(标题) | Date Added(添加日期) | Tags(标签) |

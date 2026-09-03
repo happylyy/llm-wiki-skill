@@ -23,7 +23,8 @@ Read `wiki/index.md` and `wiki/concept-table.md`, then read every page listed. B
 - All `sources` frontmatter entries
 - All contradiction blocks
 - All tags
-- All concept table rows, concept types, statuses, and related pages
+- All concept table rows, concept types, statuses, and related pages（包括根 `wiki/concept-table.md` 以及每本书的 `wiki/books/{book-slug}(书名)/concept-table.md`）
+- 根表中的 “Books” 目录行和 “Cross-book Concept Links” 行（如果存在）
 
 If BM25 is enabled, also run:
 
@@ -50,13 +51,13 @@ Execute each check category. Collect findings as a numbered list.
 
 #### 2.2 Content Checks
 
-| Check                      | Issue                                                                                         | 严重程度 |
-| -------------------------- | --------------------------------------------------------------------------------------------- | -------- |
-| Unresolved contradictions  | Contradiction block with `Resolution: pending` older than 2 ingests                           | 中       |
-| Stale claims               | Page claims X, but a newer source (by date) contradicts it without the page being updated     | 高       |
-| Single-source concepts     | Concept page backed by only 1 source                                                          | 低       |
-| Stale concept table metadata | Concept row type or status conflicts with the concept page and sources                       | 中       |
-| Outdated overview          | `wiki/overview.md` not updated since 3+ ingests ago                                           | 中       |
+| Check                        | Issue                                                                                     | 严重程度 |
+| ---------------------------- | ----------------------------------------------------------------------------------------- | -------- |
+| Unresolved contradictions    | Contradiction block with `Resolution: pending` older than 2 ingests                       | 中       |
+| Stale claims                 | Page claims X, but a newer source (by date) contradicts it without the page being updated | 高       |
+| Single-source concepts       | Concept page backed by only 1 source                                                      | 低       |
+| Stale concept table metadata | Concept row type or status conflicts with the concept page and sources                    | 中       |
+| Outdated overview            | `wiki/overview.md` not updated since 3+ ingests ago                                       | 中       |
 
 #### 2.3 Cross-reference Checks
 
@@ -66,7 +67,18 @@ Execute each check category. Collect findings as a numbered list.
 | Isolated clusters | Groups of pages that link to each other but not to the rest of the wiki        | 中       |
 | Tag inconsistency | Same concept tagged differently across pages                                   | 低       |
 
-#### 2.4 Search Layer Checks
+#### 2.4 Book & Cross-book Checks（书籍与跨书检查）
+
+| Check                      | Issue                                                                                                                        | 严重程度 |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | -------- |
+| Book concept table drift   | `wiki/books/{book-slug}(书名)/concept-table.md` 的行与 `concepts/` 下实际的概念页不一致（缺行、行指向缺失页或定义/状态过期） | 中       |
+| Book missing from index    | `wiki/books/` 下存在书籍文件夹，但根 `wiki/concept-table.md` 的 “Books” 小节或 `wiki/index.md` 的 “Books” 小节缺少对应行     | 高       |
+| Dangling cross-book link   | 概念页 “## 跨书关联” 中引用的目标概念页不存在，或根表 “Cross-book Concept Links” 指向的书籍/概念页不存在                     | 高       |
+| Cross-book link asymmetry  | 概念 A 的 “## 跨书关联” 提到概念 B，但 B 的对应小节没有反向记录同一关联                                                      | 低       |
+| Cross-book merge violation | 发现两本不同书籍的概念被合并为同一概念页（违反“跨书不合并”规则）                                                             | 高       |
+| Orphan book folder         | 书籍文件夹存在但 `concept-table.md` 缺失，或该文件夹从未在任何来源摘要页中被引用                                             | 中       |
+
+#### 2.5 Search Layer Checks
 
 | Check                  | Issue                                                                                          | 严重程度 |
 | ---------------------- | ---------------------------------------------------------------------------------------------- | -------- |

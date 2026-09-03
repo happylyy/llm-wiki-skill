@@ -8,13 +8,13 @@
 
 传统的文档问答通常在每次查询时重新检索和总结资料。LLM Wiki 则把理解和整理工作提前到资料摄取阶段，并将结果保存为可以长期维护的 Markdown 页面。
 
-| 层级 | 用途 |
-| --- | --- |
-| `raw/` | 保存不可变的原始资料和证据 |
-| `wiki/` | 保存由 LLM 维护的来源、实体、概念、比较和综合页面 |
-| `SCHEMA.md` | Wiki 的唯一操作契约，规定 agent 如何读取和维护内容 |
-| 指针文件 | 为 Codex、Claude Code 或 Copilot 提供轻量运行时入口 |
-| `EXTEND.md` | 保存 BM25、摄取和搜索等用户偏好 |
+| 层级        | 用途                                                |
+| ----------- | --------------------------------------------------- |
+| `raw/`      | 保存不可变的原始资料和证据                          |
+| `wiki/`     | 保存由 LLM 维护的来源、实体、概念、比较和综合页面   |
+| `SCHEMA.md` | Wiki 的唯一操作契约，规定 agent 如何读取和维护内容  |
+| 指针文件    | 为 Codex、Claude Code 或 Copilot 提供轻量运行时入口 |
+| `EXTEND.md` | 保存 BM25、摄取和搜索等用户偏好                     |
 
 核心原则是：原始证据保持不变，派生知识持续演进，所有重要变化都通过索引、概念表和日志沉淀下来。
 
@@ -109,6 +109,8 @@ wiki-root/
 
 原始资料只读，Skill 不会直接修改 `raw/` 中的来源文件。
 
+对于 PDF 文档，如果 `EXTEND.md` 中配置了 `pdf_ocr`，Skill 会先用 PaddleOCR 把它转换为 Markdown（输出到 `raw/{stem}.md`，图片存入 `raw/assets/{stem}/`），再执行摄取流程。
+
 ### Query：查询 Wiki
 
 对于领域问题，agent 会先读取 `wiki/index.md`，再打开相关 Wiki 页面；涉及概念关系或全局性问题时，也会读取 `wiki/concept-table.md`。
@@ -178,16 +180,16 @@ python3 scripts/wiki_fts.py stats
 
 ## 文档入口
 
-| 主题 | 链接 |
-| --- | --- |
-| Skill 总入口 | [`skill/SKILL.md`](./skill/SKILL.md) |
-| Bootstrap 工作流 | [`skill/references/workflows/bootstrap.md`](./skill/references/workflows/bootstrap.md) |
-| Ingest 工作流 | [`skill/references/workflows/ingest.md`](./skill/references/workflows/ingest.md) |
-| Query 工作流 | [`skill/references/workflows/query.md`](./skill/references/workflows/query.md) |
-| Lint 工作流 | [`skill/references/workflows/lint.md`](./skill/references/workflows/lint.md) |
-| BM25 工作流 | [`skill/references/workflows/bm25.md`](./skill/references/workflows/bm25.md) |
-| 偏好配置 schema | [`skill/references/config/extend-schema.md`](./skill/references/config/extend-schema.md) |
-| 模板目录 | [`skill/references/templates/`](./skill/references/templates/) |
+| 主题             | 链接                                                                                     |
+| ---------------- | ---------------------------------------------------------------------------------------- |
+| Skill 总入口     | [`skill/SKILL.md`](./skill/SKILL.md)                                                     |
+| Bootstrap 工作流 | [`skill/references/workflows/bootstrap.md`](./skill/references/workflows/bootstrap.md)   |
+| Ingest 工作流    | [`skill/references/workflows/ingest.md`](./skill/references/workflows/ingest.md)         |
+| Query 工作流     | [`skill/references/workflows/query.md`](./skill/references/workflows/query.md)           |
+| Lint 工作流      | [`skill/references/workflows/lint.md`](./skill/references/workflows/lint.md)             |
+| BM25 工作流      | [`skill/references/workflows/bm25.md`](./skill/references/workflows/bm25.md)             |
+| 偏好配置 schema  | [`skill/references/config/extend-schema.md`](./skill/references/config/extend-schema.md) |
+| 模板目录         | [`skill/references/templates/`](./skill/references/templates/)                           |
 
 ## 许可证与来源
 

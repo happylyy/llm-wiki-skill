@@ -42,6 +42,17 @@ bm25:
   export:
     default_format: jsonl
     include_text: true
+
+pdf_ocr:
+  # 可选。用于把 PDF 转为 Markdown 的 PaddleOCR 服务配置。
+  # token 必填（从 PaddleOCR 控制台获取）；缺失时，PDF 摄取会回退为询问用户可用工具。
+  token: "ba1fe15caffec8694648cab3c5ed55c14169d661"
+  model: PaddleOCR-VL-1.6
+  endpoint: https://paddleocr.aistudio-app.com/api/v2/ocr/jobs
+  use_doc_orientation_classify: false
+  use_doc_unwarping: false
+  use_chart_recognition: false
+  poll_interval: 5
 ```
 
 ## 说明
@@ -50,3 +61,5 @@ bm25:
 - BM25 不取代 `wiki/`、`index.md`、`SCHEMA.md` 或 LLM 的判断。
 - `indexes/fts.sqlite` 和 `exports/*.jsonl` 等生成的搜索产物均可重建，
   通常不应纳入 Git。
+- `pdf_ocr` 是可选功能，用于把 PDF 转为 Markdown；`token` 属于敏感信息，
+  请勿提交到版本库或写入 wiki 页面。

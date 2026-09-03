@@ -7,11 +7,11 @@
 
 读取第一个存在的文件：
 
-| 优先级 | 路径 | 作用域 |
-| --- | --- | --- |
-| 1 | `.llm-wiki-bootstrap/EXTEND.md` | 项目 |
-| 2 | `${XDG_CONFIG_HOME:-$HOME/.config}/llm-wiki-bootstrap/EXTEND.md` | XDG |
-| 3 | `$HOME/.llm-wiki-bootstrap/EXTEND.md` | 用户主目录 |
+| 优先级 | 路径                                                             | 作用域     |
+| ------ | ---------------------------------------------------------------- | ---------- |
+| 1      | `.llm-wiki-bootstrap/EXTEND.md`                                  | 项目       |
+| 2      | `${XDG_CONFIG_HOME:-$HOME/.config}/llm-wiki-bootstrap/EXTEND.md` | XDG        |
+| 3      | `$HOME/.llm-wiki-bootstrap/EXTEND.md`                            | 用户主目录 |
 
 在会话中首次使用时，简要说明当前启用的是哪个文件：
 
@@ -34,6 +34,7 @@
 1. BM25 提醒模式：`auto_prompt`（推荐）、`manual` 或 `off`
 2. 阈值：使用推荐值或自定义值
 3. 摄取后的重建策略：`true`（推荐）或 `false`
+4. 是否需要 PDF OCR（PaddleOCR）以支持 PDF 转 Markdown；若需要，询问并记录 `pdf_ocr.token` 与模型参数
 
 根据回答，以 `references/templates/extend.md` 为基础创建该文件。
 
@@ -74,13 +75,13 @@ bm25:
 
 ## BM25 模式语义
 
-| `mode` | 行为 |
-| --- | --- |
-| `auto_prompt` | 达到阈值时，询问是否初始化 BM25。 |
-| `manual` | 不自动提示；仅在用户明确请求时初始化。 |
-| `off` | 禁用 BM25 检查和提醒。 |
-| `enabled` | BM25 可用时使用；缺失时先询问再初始化。 |
-| `required` | 配置后，摄取、查询和检查必须使用 BM25；不可用时停止。 |
+| `mode`        | 行为                                                  |
+| ------------- | ----------------------------------------------------- |
+| `auto_prompt` | 达到阈值时，询问是否初始化 BM25。                     |
+| `manual`      | 不自动提示；仅在用户明确请求时初始化。                |
+| `off`         | 禁用 BM25 检查和提醒。                                |
+| `enabled`     | BM25 可用时使用；缺失时先询问再初始化。               |
+| `required`    | 配置后，摄取、查询和检查必须使用 BM25；不可用时停止。 |
 
 ## 阈值语义
 
@@ -100,6 +101,23 @@ bm25:
 - `source_count >= 50`
 - `wiki_page_count >= 300`
 - `wiki_text_chars >= 500000`
+
+## pdf_ocr 字段
+
+可选。用于把 `raw/` 中的 PDF 转为 Markdown，供 ingest 工作流读取。
+
+| 字段                           | 含义                         | 默认                                                 |
+| ------------------------------ | ---------------------------- | ---------------------------------------------------- |
+| `token`                        | PaddleOCR 访问令牌（必填）。 | 空                                                   |
+| `model`                        | OCR 模型名。                 | `PaddleOCR-VL-1.6`                                   |
+| `endpoint`                     | 任务提交地址。               | `https://paddleocr.aistudio-app.com/api/v2/ocr/jobs` |
+| `use_doc_orientation_classify` | 文档方向分类。               | `false`                                              |
+| `use_doc_unwarping`            | 文档展平。                   | `false`                                              |
+| `use_chart_recognition`        | 图表识别。                   | `false`                                              |
+| `poll_interval`                | 轮询间隔（秒）。             | `5`                                                  |
+
+`token` 属于敏感信息，不得写入生成的 wiki、`wiki/log.md` 或任何输出页面。
+若未配置 `pdf_ocr.token`，PDF 摄取回退为询问用户是否有可用工具。
 
 ## 决策记录
 

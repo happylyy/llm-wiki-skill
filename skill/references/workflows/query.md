@@ -18,6 +18,8 @@
 
 阅读 `wiki/index.md`。对于概念性(conceptual)、关系性(relationship)、分类(taxonomy)或全局性(landscape)问题，在选择页面前还要阅读 `wiki/concept-table.md`。识别出可能与查内容询相关的页面。如果配置了 BM25，在阅读索引后将其作为额外的候选查找工具，而不是索引的替代品。
 
+如果问题涉及“比较不同书籍”“书籍之间的关联”等跨书场景，先读根 `wiki/concept-table.md` 的 “Books” 小节定位候选书籍，再读 “Cross-book Concept Links” 小节定位候选概念对；然后分别打开对应书籍的 `wiki/books/{book-slug}(书名)/concept-table.md` 和涉及的概念页阅读完整内容。如果问题只涉及单本书内部，直接打开该书的 `wiki/books/{book-slug}(书名)/concept-table.md` 导航，无需先读根表。
+
 如果已启用 BM25，在读取索引后使用它：
 
 ```bash

@@ -109,5 +109,22 @@ class SkillContractTests(unittest.TestCase):
                     )
 
 
+    def test_pdf_ocr_script_and_workflow_are_present(self) -> None:
+        script_path = SKILL_ROOT / "scripts" / "pdf_to_markdown.py"
+        self.assertTrue(script_path.is_file(), "scripts/pdf_to_markdown.py missing")
+        script = read_text(script_path)
+        for token in ("requests.post", "def main", "layoutParsingResults", "pdf_ocr"):
+            self.assertIn(token, script)
+
+        workflow = read_text(
+            SKILL_ROOT / "references" / "workflows" / "pdf-to-markdown.md"
+        )
+        self.assertIn("scripts/pdf_to_markdown.py", workflow)
+        self.assertIn("pdf_ocr", workflow)
+
+        extend = read_text(SKILL_ROOT / "references" / "templates" / "extend.md")
+        self.assertIn("pdf_ocr", extend)
+
+
 if __name__ == "__main__":
     unittest.main()

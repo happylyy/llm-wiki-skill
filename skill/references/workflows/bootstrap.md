@@ -12,14 +12,14 @@
 
 在一次user prompt中收集下面所有问题：
 
-| 标题      | 问题                          |                                                                                              提示|
+| 标题      | 问题                          | 提示                                                                                             |
 | --------- | ----------------------------- | ------------------------------------------------------------------------------------------------ |
 | 领域/范围 | Wiki 的主题是什么？           | 单选：研究主题；小说／媒体；个人（目标、健康、学习等）；企业／团队；其他。                       |
-| Wiki 名称 | wiki根目录使用什么名称？      | 文本：建议使用```{domain}-wiki``` 格式，如```lm-wiki```这样的短标签。                                |
+| Wiki 名称 | wiki根目录使用什么名称？      | 文本：建议使用`{domain}-wiki` 格式，如`lm-wiki`这样的短标签。                                    |
 | 运行时    | 哪些运行时程序会读取此 wiki？ | 多选：Claude Code、OpenAI Codex、Copilot (VS Code)、及其他/通用类型。                            |
-| 编辑器      | 主要使用哪个编辑器？          | 单选：Obsidian（推荐）、VS Code、其他/plain 文件。                                               |
+| 编辑器    | 主要使用哪个编辑器？          | 单选：Obsidian（推荐）、VS Code、其他/plain 文件。                                               |
 | 来源类型  | 你会添加哪些类型的来源？      | 多选：网页文章、PDF 文档/论文、书籍、会议记录/发言稿、个人笔记/日记、图片/图表、数据文件、其他。 |
-| 输出位置  | 你想将wiki创建在哪里？        | 单选：当前目录或自定义路径。                                                                       |
+| 输出位置  | 你想将wiki创建在哪里？        | 单选：当前目录或自定义路径。                                                                     |
 
 ## 阶段 2：创建目录结构
 
@@ -50,6 +50,8 @@
 | 运行时包含Claude Code       | 创建`CLAUDE.md` 指针。                                |
 | 运行时包含OpenAI Codex      | 创建`AGENTS.md` 指针。                                |
 | 运行时包含Copilot (VS Code) | 创建`.github/copilot-instructions.md` 指针。          |
+
+`wiki/books/{book-slug}(书名)/` 不在引导创建阶段生成；仅在后续摄取第一个书籍类来源时，由 `ingest.md` 按需创建该书的 `concepts/` 和 `concept-table.md`。引导创建阶段无需为此新增提问。
 
 使用 `references/templates/gitignore.md` 创建 `.gitignore`。
 在写入现有路径前，先检查。如果生成的文件会覆盖已有的用户内容，必须获得批准，或者存放在另外一个wiki根目录下。
@@ -100,12 +102,12 @@
 
 请创建这些种子页面：
 
-| 文件                     | 模板                                    | 自定义内容                                           |
-| ------------------------ | --------------------------------------- | ---------------------------------------------------- |
-| `wiki/index.md`          | `references/templates/index.md`         | 添加通用部分以及特定领域的部分。                     |
-| `wiki/concept-table.md`  | `references/templates/concept-table.md` | 将 {DATE} 填充当前日期，"概念"行留空。               |
-| `wiki/log.md`            | `references/templates/log.md`           | 请添加第一条关于当前日期的维基创建条目。             |
-| `wiki/overview.md` | `references/templates/overview.md`      | 添加一段简短的简介，说明该维基页面的用途和所属领域。 |
+| 文件                    | 模板                                    | 自定义内容                                           |
+| ----------------------- | --------------------------------------- | ---------------------------------------------------- |
+| `wiki/index.md`         | `references/templates/index.md`         | 添加通用部分以及特定领域的部分。                     |
+| `wiki/concept-table.md` | `references/templates/concept-table.md` | 将 {DATE} 填充当前日期，"概念"行留空。               |
+| `wiki/log.md`           | `references/templates/log.md`           | 请添加第一条关于当前日期的维基创建条目。             |
+| `wiki/overview.md`      | `references/templates/overview.md`      | 添加一段简短的简介，说明该维基页面的用途和所属领域。 |
 
 通用索引部分包括：Core Maps, Sources, Entities, Concepts, Comparisons, Synthesis.
 特定领域索引部分：

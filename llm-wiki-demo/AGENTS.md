@@ -6,4 +6,4 @@
 
 触发词：`编译 {file}`、查询（`query`）、检查（`lint`）／`health check`。
 
-切勿修改 `raw/`。拥有 `wiki/` 的所有维护权限。
+切勿修改 `raw/`。拥有 `wiki/`的所有维护权限。

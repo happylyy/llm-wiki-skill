@@ -1,3 +1,5 @@
+# .gitignore template for LLM Wiki
+
 # OS files
 
 .DS_Store
@@ -10,13 +12,13 @@ Thumbs.db
 
 # Temporary files
 
-*.tmp
-*~
+_.tmp
+_~
 
 # Python bytecode and local tool caches
 
-__pycache__/
-*.py[cod]
+**pycache**/
+\*.py[cod]
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
@@ -24,6 +26,6 @@ __pycache__/
 # Rebuildable local BM25 artifacts
 
 indexes/fts.sqlite
-exports/*.jsonl
-exports/*.csv
-exports/*.md
+exports/_.jsonl
+exports/_.csv
+exports/\*.md
