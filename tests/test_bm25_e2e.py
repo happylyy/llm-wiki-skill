@@ -23,7 +23,7 @@ def fts5_available() -> bool:
 class BM25EndToEndTests(unittest.TestCase):
     def setUp(self) -> None:
         self.temporary_directory = tempfile.TemporaryDirectory(
-            prefix="llm-wiki-bootstrap-tests-"
+            prefix="llm-wiki-v1-tests-"
         )
         self.root = copy_test_wiki(Path(self.temporary_directory.name))
         self.raw_hashes = {

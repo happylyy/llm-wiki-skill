@@ -8,13 +8,13 @@
 
 传统的文档问答通常在每次查询时重新检索和总结资料。LLM Wiki 则把理解和整理工作提前到资料摄取阶段，并将结果保存为可以长期维护的 Markdown 页面。
 
-| 层级 | 用途 |
-| --- | --- |
-| `raw/` | 保存不可变的原始资料和证据 |
-| `wiki/` | 保存由 LLM 维护的来源、实体、概念、比较和综合页面 |
-| `SCHEMA.md` | Wiki 的唯一操作契约，规定 agent 如何读取和维护内容 |
-| 指针文件 | 为 Codex、Claude Code 或 Copilot 提供轻量运行时入口 |
-| `EXTEND.md` | 保存 BM25、摄取和搜索等用户偏好 |
+| 层级        | 用途                                                |
+| ----------- | --------------------------------------------------- |
+| `raw/`      | 保存不可变的原始资料和证据                          |
+| `wiki/`     | 保存由 LLM 维护的来源、实体、概念、比较和综合页面   |
+| `SCHEMA.md` | Wiki 的唯一操作契约，规定 agent 如何读取和维护内容  |
+| 指针文件    | 为 Codex、Claude Code 或 Copilot 提供轻量运行时入口 |
+| `EXTEND.md` | 保存 BM25、摄取和搜索等用户偏好                     |
 
 核心原则是：原始证据保持不变，派生知识持续演进，所有重要变化都通过索引、概念表和日志沉淀下来。
 
@@ -23,19 +23,19 @@
 使用 Skills CLI 安装：
 
 ```bash
-npx skills add happylyy/Karpathy-llm-wiki-bootstrap-skill@llm-wiki-bootstrap
+npx skills add happylyy/Karpathy-llm-wiki-bootstrap-skill@llm-wiki-v1
 ```
 
 安装到用户级目录并跳过交互确认：
 
 ```bash
-npx skills add happylyy/Karpathy-llm-wiki-bootstrap-skill@llm-wiki-bootstrap -g -y
+npx skills add happylyy/Karpathy-llm-wiki-bootstrap-skill@llm-wiki-v1 -g -y
 ```
 
 更新已有安装：
 
 ```bash
-npx skills update llm-wiki-bootstrap
+npx skills update llm-wiki-v1
 ```
 
 请使用复数形式的 `skills` CLI，不要使用 `npx skill ...`。
@@ -71,7 +71,7 @@ wiki-root/
 │   └── overview(概览).md       # Wiki 的顶层综合
 ├── SCHEMA.md                   # 唯一操作契约
 ├── AGENTS.md                   # Codex 指针（按运行时选择）
-├── .llm-wiki-bootstrap/
+├── .llm-wiki-v1/
 │   └── EXTEND.md               # 项目级偏好（可选）
 └── .gitignore
 ```
@@ -143,9 +143,9 @@ Skill 会先报告问题，并在用户明确选择后执行修复。
 
 Skill 会按照以下顺序查找第一个可用的 `EXTEND.md`：
 
-1. 项目内的 `.llm-wiki-bootstrap/EXTEND.md`
-2. XDG 配置目录中的 `llm-wiki-bootstrap/EXTEND.md`
-3. 用户目录中的 `.llm-wiki-bootstrap/EXTEND.md`
+1. 项目内的 `.llm-wiki-v1/EXTEND.md`
+2. XDG 配置目录中的 `llm-wiki-v1/EXTEND.md`
+3. 用户目录中的 `.llm-wiki-v1/EXTEND.md`
 
 偏好文件可以控制：
 
@@ -178,16 +178,16 @@ python3 scripts/wiki_fts.py stats
 
 ## 文档入口
 
-| 主题 | 链接 |
-| --- | --- |
-| Skill 总入口 | [`skill/SKILL.md`](./skill/SKILL.md) |
-| Bootstrap 工作流 | [`skill/references/workflows/bootstrap.md`](./skill/references/workflows/bootstrap.md) |
-| Ingest 工作流 | [`skill/references/workflows/ingest.md`](./skill/references/workflows/ingest.md) |
-| Query 工作流 | [`skill/references/workflows/query.md`](./skill/references/workflows/query.md) |
-| Lint 工作流 | [`skill/references/workflows/lint.md`](./skill/references/workflows/lint.md) |
-| BM25 工作流 | [`skill/references/workflows/bm25.md`](./skill/references/workflows/bm25.md) |
-| 偏好配置 schema | [`skill/references/config/extend-schema.md`](./skill/references/config/extend-schema.md) |
-| 模板目录 | [`skill/references/templates/`](./skill/references/templates/) |
+| 主题             | 链接                                                                                     |
+| ---------------- | ---------------------------------------------------------------------------------------- |
+| Skill 总入口     | [`skill/SKILL.md`](./skill/SKILL.md)                                                     |
+| Bootstrap 工作流 | [`skill/references/workflows/bootstrap.md`](./skill/references/workflows/bootstrap.md)   |
+| Ingest 工作流    | [`skill/references/workflows/ingest.md`](./skill/references/workflows/ingest.md)         |
+| Query 工作流     | [`skill/references/workflows/query.md`](./skill/references/workflows/query.md)           |
+| Lint 工作流      | [`skill/references/workflows/lint.md`](./skill/references/workflows/lint.md)             |
+| BM25 工作流      | [`skill/references/workflows/bm25.md`](./skill/references/workflows/bm25.md)             |
+| 偏好配置 schema  | [`skill/references/config/extend-schema.md`](./skill/references/config/extend-schema.md) |
+| 模板目录         | [`skill/references/templates/`](./skill/references/templates/)                           |
 
 ## 许可证与来源
 

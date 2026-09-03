@@ -1,6 +1,6 @@
-# llm-wiki 偏好设置
+# llm-wiki-v1 偏好设置
 
-此文件用于自定义 llm-wiki skill 在当前项目中的行为。
+此文件用于自定义 llm-wiki-v1 skill 在当前项目中的行为。
 按照已配置的优先顺序找到的第一个 EXTEND.md 生效。
 
 ```yaml

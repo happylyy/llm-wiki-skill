@@ -173,7 +173,7 @@ python3 scripts/wiki_fts.py export --format markdown --out exports/bm25-report.m
 
 - `scripts/wiki_fts.py`
 - `indexes/README.md`
-- 如果偏好设置仅适用于当前项目，则提交 `.llm-wiki-bootstrap/EXTEND.md`
+- 如果偏好设置仅适用于当前项目，则提交 `.llm-wiki-v1/EXTEND.md`
 
 通常不提交：
 

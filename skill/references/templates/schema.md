@@ -1,6 +1,6 @@
 # {WIKI_NAME}
 
-> 由 llm-wiki-bootstrap 自动生成。此文件指导 LLM 智能体如何操作本 wiki。
+> 由 llm-wiki-v1 自动生成。此文件指导 LLM 智能体如何操作本 wiki。
 
 ## 身份
 
@@ -22,15 +22,15 @@ wiki/overview.md # 综合概览——随着理解加深而修订
 
 ## 页面类型
 
-| 类型                  | 文件名模式                                       | 用途                                                         |
-| --------------------- | ------------------------------------------------ | ------------------------------------------------------------ |
-| Sources(来源)         | `wiki/sources/{english-slug}({中文标题}).md`     | 每个摄取的来源对应一个文档，记录关键主张、数据和引用内容。   |
-| Entities(实体)        | `wiki/entities/{english-slug}({中文标题}).md`    | 人物、组织、地点、产品——任何具有明确身份的事物。             |
-| Concepts(概念)        | `wiki/concepts/{english-slug}({中文标题}).md`    | 观点、理论、框架、方法。                                     |
-| Concept-table(概念表) | `wiki/concept-table.md`                          | 持续维护的概念矩阵，包括概念、类型、关系、来源和状态。       |
-| Comparisons(比较)     | `wiki/comparisons/{english-slug}({中文标题}).md` | 对两个或更多实体或概念进行并列分析。                         |
-| Synthesis(综合分析)   | `wiki/synthesis/{english-slug}({中文标题}).md`   | 围绕某个主题进行跨来源分析。                                 |
-| Overview(概览)        | `wiki/{english-slug}({中文标题}).md`             | 整个知识库的顶层叙述。                                       |
+| 类型                  | 文件名模式                                       | 用途                                                       |
+| --------------------- | ------------------------------------------------ | ---------------------------------------------------------- |
+| Sources(来源)         | `wiki/sources/{english-slug}({中文标题}).md`     | 每个摄取的来源对应一个文档，记录关键主张、数据和引用内容。 |
+| Entities(实体)        | `wiki/entities/{english-slug}({中文标题}).md`    | 人物、组织、地点、产品——任何具有明确身份的事物。           |
+| Concepts(概念)        | `wiki/concepts/{english-slug}({中文标题}).md`    | 观点、理论、框架、方法。                                   |
+| Concept-table(概念表) | `wiki/concept-table.md`                          | 持续维护的概念矩阵，包括概念、类型、关系、来源和状态。     |
+| Comparisons(比较)     | `wiki/comparisons/{english-slug}({中文标题}).md` | 对两个或更多实体或概念进行并列分析。                       |
+| Synthesis(综合分析)   | `wiki/synthesis/{english-slug}({中文标题}).md`   | 围绕某个主题进行跨来源分析。                               |
+| Overview(概览)        | `wiki/{english-slug}({中文标题}).md`             | 整个知识库的顶层叙述。                                     |
 
 {DOMAIN_PAGE_TYPES}
 
@@ -180,9 +180,9 @@ chunk_id, page_path, title, type, heading_path, ordinal, sources, tags, updated,
 
 ## Core Maps(核心地图)
 
-| File(文件)                               | Purpose(用途)                                                                                  |
-| ---------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| [overview(概览).md](<overview(概览).md>) | High-level synthesis of the whole wiki                                                         |
+| File(文件)                               | Purpose(用途)                                                                      |
+| ---------------------------------------- | ---------------------------------------------------------------------------------- |
+| [overview(概览).md](<overview(概览).md>) | High-level synthesis of the whole wiki                                             |
 | [concept-table.md](concept-table.md)     | Maintained concept map with types, definitions, relationships, sources, and status |
 
 ## Sources(源文件)

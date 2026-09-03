@@ -31,7 +31,7 @@ class SkillContractTests(unittest.TestCase):
                 if ":" in line and not line.startswith((" ", "\t"))
             }
             self.assertEqual(keys, {"name", "description"})
-            self.assertIn("name: llm-wiki-bootstrap", text[:end])
+            self.assertIn("name: llm-wiki-v1", text[:end])
 
     def test_concept_template_has_ordered_complete_contract(self) -> None:
         template = read_text(SKILL_ROOT / "references" / "templates" / "concepts.md")

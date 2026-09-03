@@ -1,4 +1,4 @@
-# Karpathy LLM Wiki Bootstrap
+# Karpathy LLM Wiki
 
 [English](./README.md)
 
@@ -35,7 +35,7 @@
 安装 Skill：
 
 ```bash
-npx skills add happylyy/Karpathy-llm-wiki-bootstrap-skill@llm-wiki-bootstrap
+npx skills add happylyy/Karpathy-llm-wiki-bootstrap-skill@llm-wiki-v1
 ```
 
 然后对你的 agent 说：
@@ -153,19 +153,19 @@ python3 scripts/wiki_fts.py stats
 使用复数形式的 CLI：
 
 ```bash
-npx skills add nanzhipro/Karpathy-llm-wiki-bootstrap-skill@llm-wiki-bootstrap
+npx skills add nanzhipro/Karpathy-llm-wiki-bootstrap-skill@llm-wiki-v1
 ```
 
 非交互式用户级安装：
 
 ```bash
-npx skills add nanzhipro/Karpathy-llm-wiki-bootstrap-skill@llm-wiki-bootstrap -g -y
+npx skills add nanzhipro/Karpathy-llm-wiki-bootstrap-skill@llm-wiki-v1 -g -y
 ```
 
 更新已有安装：
 
 ```bash
-npx skills update llm-wiki-bootstrap
+npx skills update llm-wiki-v1
 ```
 
 不要使用 `npx skill ...`；那是另一个 CLI。

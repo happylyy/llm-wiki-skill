@@ -1,6 +1,6 @@
-# llm-wiki-bootstrap 偏好设置
+# llm-wiki-v1 偏好设置
 
-此文件用于自定义 llm-wiki-bootstrap skill 在当前项目或用户账户中的行为。
+此文件用于自定义 llm-wiki-v1 skill 在当前项目或用户账户中的行为。
 按照已配置的优先顺序找到的第一个 EXTEND.md 生效。
 
 ```yaml
@@ -42,6 +42,17 @@ bm25:
   export:
     default_format: jsonl
     include_text: true
+
+pdf_ocr:
+  # 可选能力：需要摄取 PDF 时设为 enabled: true 并填写 token。
+  enabled: false
+  token: ""
+  model: "PaddleOCR-VL-1.6"
+  endpoint: "https://paddleocr.aistudio-app.com/api/v2/ocr/jobs"
+  poll_interval: 5
+  use_doc_orientation_classify: false
+  use_doc_unwarping: false
+  use_chart_recognition: false
 ```
 
 ## 说明

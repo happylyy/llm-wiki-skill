@@ -1,1 +1,1 @@
-"""Regression tests for the llm-wiki-bootstrap skill."""
+"""Regression tests for the llm-wiki-v1 skill."""

@@ -11,7 +11,7 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 SKILL_ROOT = REPO_ROOT / "skill"
-MIRROR_ROOT = REPO_ROOT / ".agents" / "skills" / "llm-wiki-bootstrap"
+MIRROR_ROOT = REPO_ROOT / ".agents" / "skills" / "llm-wiki-v1"
 FIXTURES_ROOT = Path(__file__).resolve().parent / "fixtures"
 
 CONCEPT_TYPES = (
