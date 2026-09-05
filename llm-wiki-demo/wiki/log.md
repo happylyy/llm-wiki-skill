@@ -11,3 +11,12 @@
 - 来源类型：网页文章、PDF 文档/论文、会议记录/发言稿、个人笔记/日记
 - 架构：SCHEMA.md（唯一事实来源）
 - 指针文件：AGENTS.md、.github/copilot-instructions.md
+
+## [2026-09-05] ingest | 研发项目管理办法 4.1
+
+- Summary: wiki/sources/rd-project-management-measures-v4-1(研发项目管理办法4.1).md
+- Updated: wiki/index.md, wiki/concept-table.md, wiki/overview(概览).md
+- New pages: 1 source-summary, 8 concepts, 4 entities
+- Contradictions: none
+- Search index: BM25 未启用，未执行重建；继续使用 wiki/index.md 和文本检索
+- Confidentiality: 原文标有“东软秘密，未经许可不得扩散”

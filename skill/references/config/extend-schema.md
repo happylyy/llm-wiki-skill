@@ -7,11 +7,11 @@
 
 读取第一个存在的文件：
 
-| 优先级 | 路径                                                   | 作用域     |
-| ------ | ------------------------------------------------------ | ---------- |
-| 1      | `.llm-wiki-v1/EXTEND.md`                                        | 项目       |
-| 2      | `${XDG_CONFIG_HOME:-$HOME/.config}/llm-wiki-v1/EXTEND.md`       | XDG        |
-| 3      | `$HOME/.llm-wiki-v1/EXTEND.md`                                  | 用户主目录 |
+| 优先级 | 路径                                                      | 作用域     |
+| ------ | --------------------------------------------------------- | ---------- |
+| 1      | `.llm-wiki-v1/EXTEND.md`                                  | 项目       |
+| 2      | `${XDG_CONFIG_HOME:-$HOME/.config}/llm-wiki-v1/EXTEND.md` | XDG        |
+| 3      | `$HOME/.llm-wiki-v1/EXTEND.md`                            | 用户主目录 |
 
 在会话中首次使用时，简要说明当前启用的是哪个文件：
 
