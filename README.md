@@ -23,13 +23,13 @@
 使用 Skills CLI 安装：
 
 ```bash
-npx skills add happylyy/Karpathy-llm-wiki-bootstrap-skill@llm-wiki-v1
+npx skills add happylyy/llm-wiki-skill@llm-wiki-v1
 ```
 
 安装到用户级目录并跳过交互确认：
 
 ```bash
-npx skills add happylyy/Karpathy-llm-wiki-bootstrap-skill@llm-wiki-v1 -g -y
+npx skills add happylyy/llm-wiki-skill@llm-wiki-v1 -g -y
 ```
 
 更新已有安装：
