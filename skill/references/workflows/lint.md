@@ -24,6 +24,7 @@ Read `wiki/index.md` and `wiki/concept-table.md`, then read every page listed. B
 - All contradiction blocks
 - All tags
 - All concept table rows, concept types, statuses, and related pages
+- Each source summary's `sources` frontmatter and complete `## 相关概念(Concepts)` link set
 
 If BM25 is enabled, also run:
 
@@ -46,6 +47,7 @@ Execute each check category. Collect findings as a numbered list.
 | Missing pages       | Concept/entity mentioned 3+ times across pages but has no dedicated page                                                  | 中       |
 | Index drift         | Page exists in `wiki/` but not listed in `index.md`                                                                       | 高       |
 | Concept table drift | Concept page exists without a row, row points to a missing concept page, or row definition/status conflicts with the page | 中       |
+| Source-concept drift | A source summary's concept links differ from the persistent concept pages whose `sources` include that source, including missing, extra, duplicate, alias, or pre-merge links | 中       |
 | Empty pages         | Page has frontmatter but no meaningful body content                                                                       | 低       |
 
 #### 2.2 Content Checks
@@ -115,6 +117,7 @@ Execute each check category. Collect findings as a numbered list.
 
 - 按需创建或更新页面
 - 更新交叉引用
+- 修复来源—概念关联时，以概念页 `sources` 为依据补齐或移除来源摘要中的链接，并只保留最终规范概念页
 - 如果较新的数据结论明确，则解决矛盾
 - 更新 `wiki/index.md`
 - 如果已启用 BM25 且 wiki 页面发生变化，重建 BM25

@@ -1,0 +1,48 @@
+---
+title: "{english-slug}({中文标题})"
+type: source-summary
+created: { date }
+updated: { date }
+sources: [{ filename }]
+tags: [{ auto-generated tags }]
+---
+
+# {中文标题}
+
+## 作品分类(Category)
+
+{作品类型及判断依据}
+
+## 主题摘要(Summary)
+
+{用 2-3 段概述来源内容}
+
+## 关键主张(Key Claims)
+
+1. {作者要回答的主要或次要问题，以及包含源文件语言引文的主张}
+
+## 作品结构(Structures)
+
+{作品主要部分之间的关系，以及重要部分的子大纲}
+
+## 目录与实际结构的差异
+
+{比较作品目录与作者实际内容结构的差异}
+
+## 提及的实体(Entities Mentioned)
+
+- [[{实体页面}|{实体名称}]]
+
+## 相关概念(Concepts)
+
+- [[{概念页面}|{概念名称}]]
+
+## 重要引文(Notable Quotes)
+
+> {使用源文件语言记录原文引文}
+
+- 位置：{页码／章节}
+
+## 局限／偏见(Limitations / Bias)
+
+{说明来源是否仅基于单一视角，以及是否包含过时或偏颇的观点}

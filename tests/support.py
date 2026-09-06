@@ -70,6 +70,17 @@ def parse_frontmatter(text: str) -> dict[str, str]:
     return result
 
 
+def parse_frontmatter_list(value: str) -> list[str]:
+    stripped = value.strip()
+    if not stripped.startswith("[") or not stripped.endswith("]"):
+        raise AssertionError(f"frontmatter value is not an inline list: {value}")
+    return [
+        item.strip().strip("\"'")
+        for item in stripped[1:-1].split(",")
+        if item.strip()
+    ]
+
+
 def section(text: str, heading: str) -> str:
     normalized = text.replace("\r\n", "\n")
     marker = f"## {heading}\n"

@@ -14,6 +14,10 @@ tags: [article, decisions]
 文章强调决策可追溯，并支持在高风险判断中使用
 [[evidence-feedback-loop(证据反馈循环)|证据反馈循环]]。
 
+## 相关概念(Concepts)
+
+- [[evidence-feedback-loop(证据反馈循环)|证据反馈循环]]
+
 ## 来源
 
 - traceable-decisions-article.md

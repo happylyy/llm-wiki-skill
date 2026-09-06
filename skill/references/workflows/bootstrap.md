@@ -33,7 +33,7 @@
 │   ├── index.md
 │   ├── concept-table.md
 │   ├── log.md
-│   └── overview(概览).md
+│   └── overview.md
 ├── SCHEMA.md
 ├── {pointer-files}
 └── .gitignore

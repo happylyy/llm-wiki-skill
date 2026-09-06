@@ -45,6 +45,7 @@ description: >
 - 对于摄取(ingest)、查询(query)和检查(lint)：先读取匹配的工作流文件；仅当偏好或用户请求需要搜索行为时，才读取 `references/workflows/bm25.md`。
 - PDF 转 Markdown：读取 `references/workflows/pdf-to-markdown.md`；`scripts/pdf_to_markdown.py` 是技能内脚本，不复制进生成的 wiki。
 - 摄取完整书籍、章节或书籍节选时：在 `references/workflows/ingest.md` 判定来源类型后，额外读取并完整执行 `references/workflows/ingest_concepts.md`；非书籍来源不得加载该子流程。
+- 生成来源摘要页时：读取 `references/templates/sources.md`，并以该模板为基础填写页面内容。
 - 生成或更新概念页时：读取 `references/templates/concepts.md`，以完整模板为基础填充概念；允许追加自定义章节，但不得删除模板字段。
 - Schema生成：读取 `references/templates/schema.md`的内容，并按需注入 `references/templates/domain-page-types.md`。
 - 指针文件：读取 `references/templates/agent-pointer.md` 的内容，并保持精简。
@@ -78,7 +79,7 @@ raw/
 wiki/index.md
 wiki/concept-table.md
 wiki/log.md
-wiki/overview(概览).md
+wiki/overview.md
 SCHEMA.md
 .gitignore
 ```

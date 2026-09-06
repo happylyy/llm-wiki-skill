@@ -4,7 +4,14 @@ import re
 import unittest
 from pathlib import Path
 
-from tests.support import CONCEPT_TYPES, MIRROR_ROOT, SKILL_ROOT, read_text, sha256
+from tests.support import (
+    CONCEPT_TYPES,
+    MIRROR_ROOT,
+    SKILL_ROOT,
+    parse_frontmatter,
+    read_text,
+    sha256,
+)
 
 
 class SkillContractTests(unittest.TestCase):
@@ -63,6 +70,53 @@ class SkillContractTests(unittest.TestCase):
         self.assertNotIn("维护备注", template)
         for concept_type in CONCEPT_TYPES:
             self.assertIn(f"`{concept_type}`", template)
+
+    def test_source_template_is_complete_and_routed_from_ingest(self) -> None:
+        template = read_text(SKILL_ROOT / "references" / "templates" / "sources.md")
+        ingest = read_text(SKILL_ROOT / "references" / "workflows" / "ingest.md")
+        frontmatter = parse_frontmatter(template)
+
+        self.assertEqual(
+            set(frontmatter),
+            {"title", "type", "created", "updated", "sources", "tags"},
+        )
+        self.assertEqual(frontmatter["type"], "source-summary")
+
+        headings = (
+            "## 作品分类(Category)",
+            "## 主题摘要(Summary)",
+            "## 关键主张(Key Claims)",
+            "## 作品结构(Structures)",
+            "## 目录与实际结构的差异",
+            "## 提及的实体(Entities Mentioned)",
+            "## 相关概念(Concepts)",
+            "## 重要引文(Notable Quotes)",
+            "## 局限／偏见(Limitations / Bias)",
+        )
+        positions = [template.index(heading) for heading in headings]
+        self.assertEqual(positions, sorted(positions))
+
+        self.assertIn("references/templates/sources.md", ingest)
+        self.assertIn("完整持久概念清单", template)
+        self.assertNotIn("type: source-summary", ingest)
+        self.assertNotIn("1. **作品分类(Category)**", ingest)
+
+    def test_ingest_keeps_confirmed_notes_and_source_concepts_in_sync(self) -> None:
+        ingest = read_text(SKILL_ROOT / "references" / "workflows" / "ingest.md")
+        schema = read_text(SKILL_ROOT / "references" / "templates" / "schema.md")
+        lint = read_text(SKILL_ROOT / "references" / "workflows" / "lint.md")
+
+        for text in (ingest, schema):
+            self.assertIn("来源页、概念页和实体页在内存中的笔记", text)
+            self.assertIn("全部持久概念", text)
+            self.assertIn("`保留候选` 和 `忽略`", text)
+            self.assertIn("多来源概念必须出现在每个对应来源摘要中", text)
+            self.assertIn("只链接最终规范概念页", text)
+            for action in ("新增", "更新", "合并"):
+                self.assertIn(action, text)
+
+        self.assertRegex(lint, r"Source-concept drift.+中")
+        self.assertIn("概念页 `sources`", lint)
 
     def test_schema_and_workflows_enforce_type_dependent_sections(self) -> None:
         schema = read_text(SKILL_ROOT / "references" / "templates" / "schema.md")

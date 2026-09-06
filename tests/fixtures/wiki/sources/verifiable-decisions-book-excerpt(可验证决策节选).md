@@ -14,6 +14,11 @@ tags: [book-excerpt, decisions]
 节选提出 [[evidence-feedback-loop(证据反馈循环)|证据反馈循环]]，并用
 [[risk-level-classification(风险等级分类)|风险等级分类]] 安排复查频率。
 
+## 相关概念(Concepts)
+
+- [[evidence-feedback-loop(证据反馈循环)|证据反馈循环]]
+- [[risk-level-classification(风险等级分类)|风险等级分类]]
+
 ## 来源
 
 - verifiable-decisions-book-excerpt.md

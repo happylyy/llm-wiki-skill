@@ -6,8 +6,10 @@ from pathlib import Path
 from tests.support import (
     DUAL_NAME_RE,
     FIXTURES_ROOT,
+    REPO_ROOT,
     WIKILINK_RE,
     parse_frontmatter,
+    parse_frontmatter_list,
     read_text,
     section,
 )
@@ -68,6 +70,43 @@ class GeneratedWikiContractTests(unittest.TestCase):
                 normalized = Path(target).name.removesuffix(".md")
                 with self.subTest(path=path.name, target=target):
                     self.assertIn(normalized, stems)
+
+    def assert_source_concept_links_match_provenance(self, wiki: Path) -> None:
+        concept_stems = {
+            path.stem for path in (wiki / "concepts").glob("*.md")
+        }
+        concepts_by_source: dict[str, set[str]] = {}
+        for path in (wiki / "concepts").glob("*.md"):
+            frontmatter = parse_frontmatter(read_text(path))
+            for source in parse_frontmatter_list(frontmatter["sources"]):
+                concepts_by_source.setdefault(source, set()).add(path.stem)
+
+        for path in (wiki / "sources").glob("*.md"):
+            text = read_text(path)
+            frontmatter = parse_frontmatter(text)
+            source_files = parse_frontmatter_list(frontmatter["sources"])
+            expected = set().union(
+                *(concepts_by_source.get(source, set()) for source in source_files)
+            )
+            targets = [
+                Path(target).name.removesuffix(".md")
+                for target in WIKILINK_RE.findall(
+                    section(text, "相关概念(Concepts)")
+                )
+            ]
+
+            with self.subTest(wiki=wiki.name, source=path.name):
+                self.assertEqual(len(targets), len(set(targets)), "duplicate concept link")
+                self.assertTrue(set(targets).issubset(concept_stems))
+                self.assertSetEqual(set(targets), expected)
+
+    def test_fixture_source_concept_links_match_provenance(self) -> None:
+        self.assert_source_concept_links_match_provenance(self.wiki)
+
+    def test_demo_source_concept_links_match_provenance(self) -> None:
+        self.assert_source_concept_links_match_provenance(
+            REPO_ROOT / "llm-wiki-demo" / "wiki"
+        )
 
 
 if __name__ == "__main__":
